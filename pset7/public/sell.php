@@ -28,7 +28,7 @@
             query("INSERT INTO history (id, transaction, symbol, shares, price) VALUES (?, ?, ?, ?, ?)", $_SESSION["id"], $transaction, $_POST["symbol"], $stock2[0]["shares"], $stock1["price"]);
             
             // coming back to portifolio page
-             redirect("/");
+             redirect("./");
         
     }
     

@@ -8,5 +8,5 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $link = $_POST["links"];
-        redirect("/".$_POST["links"]);
+        redirect("./".$_POST["links"]);
     }

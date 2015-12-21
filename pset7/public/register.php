@@ -31,7 +31,7 @@
                 $rows = query("SELECT LAST_INSERT_ID() AS id");
                 $id = $rows[0]["id"];
                 $_SESSION["id"] = $id;
-                header('Location: index.php');
+				redirect("./");
             }        
         }
     }

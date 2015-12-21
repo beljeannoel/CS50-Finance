@@ -24,11 +24,12 @@
         
         $stock1 = lookup($_POST["symbol"]);
         
-        $cost = $stock1["price"] * $_POST["shares"];
+        $cost = floatval($stock1["price"]) * floatval($_POST["shares"]);
         
         $cash =	query("SELECT cash FROM users WHERE id = ?", $_SESSION["id"]);
-        
-        if ($cash < $cost)
+		$cash1 = floatval($cash[0]["cash"]);
+        //apologize("Cash: ".$cash1." Cost: ".$cost);
+        if ($cash1 < $cost)
         {
             // apologize
             apologize("You dont have enough cash.");
@@ -49,7 +50,7 @@
             query("INSERT INTO history (id, transaction, symbol, shares, price) VALUES (?, ?, ?, ?, ?)", $_SESSION["id"], $transaction, $_POST["symbol"], $_POST["shares"], $stock1["price"]);
             
             // redirect to portifolio again
-            redirect("/");
+            redirect("./");
             
         
         }
